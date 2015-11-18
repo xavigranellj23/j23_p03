@@ -95,19 +95,22 @@ $sql = "SELECT DISTINCT * FROM tbl_usuario WHERE id_usuario=$_REQUEST[id]";
             <div id="divMaterialReserva">
                 <table>
                   <tr>
-                    <td>Nombre:</td>
-                    <td>Apellido:</td>
-                    <td>Email:</td>
-                    <td>Contraseña:</td>
-                    <td>Tipo Usuario:<td>
+                    <td><b>Nombre:</b></td>
+                    <td><b>Apellido:</b></td>
+                    <td><b>Email:</b></td>
+                    <td><b>Contraseña:</b></td>
+                    <td><b>Tipo Usuario:</b><td>
                     <td><td>
                   </tr>
                   <tr>
-                    <td style="width:370px"> <br/><input type="text" name="nombre" size="15" maxlength="25" value="<?php echo $mostrar['nombre']; ?>"><br/></td>
-                    <td style="width:370px"> <br/><input type="text" name="apellido" size="15" maxlength="25" value="<?php echo $mostrar['apellido']; ?>"><br/></td>
-                    <td style="width:370px"> <br/><input type="text" name="email" size="15" maxlength="25" value="<?php echo $mostrar['email']; ?>"><br/></td>
-                    <td style="width:370px"> <br/><input type="text" name="password" size="15" maxlength="25" value="<?php echo $mostrar['password']; ?>"><br/></td>
+                    <td style="width:370px"> <br/><input type="text" name="nom" size="15" maxlength="25" value="<?php echo $mostrar['nombre']; ?>"><br/></td>
+                    <td style="width:370px"> <br/><input type="text" name="ape" size="15" maxlength="25" value="<?php echo $mostrar['apellido']; ?>"><br/></td>
+                    <td style="width:370px"> <br/><input type="text" name="mail" size="15" maxlength="25" value="<?php echo $mostrar['email']; ?>"><br/></td>
+                    <td style="width:370px"> <br/><input type="text" name="pass" size="15" maxlength="25" value="<?php echo $mostrar['password']; ?>"><br/></td>
+                    
                     <td style="width:370px">
+                      
+
                       <select name="tip">
                         <?php
                           //Rellenar datos del SELECT con los datos de la base de datos
@@ -121,12 +124,11 @@ $sql = "SELECT DISTINCT * FROM tbl_usuario WHERE id_usuario=$_REQUEST[id]";
                             }
                           ?>
                     </select>
-                        
-
 
                     </td>
                     <td style="width:370px"> <input type="submit" value="Guardar"></td>
-                    <td style="width:370px"> <input type="submit" value="Cancelar" href="usuarios.php"></td>
+                    <td style="width:370px"> <button type="submit" href="usuarios.php">Volver</button></td>
+
                   </tr>
                 </table>
             </div>

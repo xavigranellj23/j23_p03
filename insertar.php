@@ -1,4 +1,14 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Usuarios</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <style>
+        a {color: #4F6187;}
+      </style>
+  </head>
+  <body>
 
 <?php
 //se continúa la sesión
@@ -69,50 +79,58 @@ $sql = "SELECT * FROM tbl_tipo_usuario ORDER BY tipo_usuario ASC";
          </div>
       </div>
         <main>
-        	<section id="centro">
+          <section id="centro">
              
             <!-- PARTE DONDE SE VA A MOSTRAR LA INFORMACIÓN -->
             <?php
             //consulta de datos según el filtrado
               $datos = mysqli_query($conexion,$sql);
-              ?>
-
+              //si se devuelve un valor diferente a 0 (hay datos)
+              if(mysqli_num_rows($datos)>0){
+                $mostrar=mysqli_fetch_array($datos);
+            ?>
             <form name="insertar" action="insertar.proc.php" method="get">
-
+            <input type="hidden" name="id" value="<?php echo $mostrar['id_usuario']; ?>">
             <br/>
             <div id="divMaterialReserva">
                 <table>
                   <tr>
-                    <td>Nombre:</td>
-                    <td>Apellido:</td>
-                    <td>Email:</td>
-                    <td>Contraseña:</td>
-                    <td>Tipo Usuario:<td>
+                    <td><b>Nombre:</b></td>
+                    <td><b>Apellido:</b></td>
+                    <td><b>Email:</b></td>
+                    <td><b>Contraseña:</b></td>
+                    <td><b>Tipo Usuario:</b><td>
                     <td><td>
                   </tr>
                   <tr>
-                    <td style="width:370px"> <br/><input type="text" name="nombre" size="15" maxlength="25"><br/></td>
-                    <td style="width:370px"> <br/><input type="text" name="apellido" size="15" maxlength="25"><br/></td>
-                    <td style="width:370px"> <br/><input type="text" name="email" size="15" maxlength="25"><br/></td>
-                    <td style="width:370px"> <br/><input type="text" name="password" size="15" maxlength="25"><br/></td>
+                    <td style="width:370px"> <br/><input type="text" name="nom" size="15" maxlength="25"><br/></td>
+                    <td style="width:370px"> <br/><input type="text" name="ape" size="15" maxlength="25"><br/></td>
+                    <td style="width:370px"> <br/><input type="text" name="mail" size="15" maxlength="25"><br/></td>
+                    <td style="width:370px"> <br/><input type="text" name="pass" size="15" maxlength="25"><br/></td>
+                    
                     <td style="width:370px">
-                        <select name="tip">
+                      
+
+                      <select name="tip">
                         <?php
-
-                        while ($tipo=mysqli_fetch_array($datos)){
-                          echo "<option value='$tipo[id_tipo_usuario]'> $tipo[tipo_usuario]</option>";
-                        }
-
-                        ?>
-                      </select>
-
+                          //Rellenar datos del SELECT con los datos de la base de datos
+                          $sqlTipo = "SELECT * FROM tbl_tipo_usuario";
+                          //consulta del select
+                          $query = mysqli_query($conexion,$sqlTipo);
+                          //mientras por cada dato en el array $query
+                          while ($mostrarOpciones = mysqli_fetch_array($query)) {
+                          //crea una opción en el dato extraido de la base de datos
+                          echo "<option value='$mostrarOpciones[id_tipo_usuario]'>$mostrarOpciones[tipo_usuario]</option>";
+                            }
+                          ?>
+                    </select>
 
                     </td>
-                    <td style="width:370px"> <input type="submit" value="Guardar"></td>
-                    <td style="width:370px"> <input type="submit" value="Cancelar" href="usuarios.php"></td>
+                    <td style="width:370px"> <input type="submit" value="Insertar  Usuario"></td>
+                    <td style="width:370px"> <button type="submit" href="usuarios.php">Volver</button></td>
+
                   </tr>
                 </table>
-                </form>
             </div>
             <?php
 
@@ -130,8 +148,8 @@ $sql = "SELECT * FROM tbl_tipo_usuario ORDER BY tipo_usuario ASC";
             </div><?php
               }
             ?>
-        	</section>
-
+                    </form>
+          </section>
         </main>
     </body>
 </html>

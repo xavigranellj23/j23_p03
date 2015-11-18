@@ -117,12 +117,12 @@ if(isset($_REQUEST['opciones'])){
             <div id="divMaterialReserva">
                 <table>
                   <tr>
-                    <td>Email</td>
-                    <td>Tipo Usuario</td>
-                    <td>Nombre</td>
-                    <td>Apellido</td>
-                    <td>Modificar</td>
-                    <td>Eliminar</td>
+                    <td><b>Email:</b></td>
+                    <td><b>Tipo Usuario:</b></td>
+                    <td><b>Nombre:</b></td>
+                    <td><b>Apellido:</b></td>
+                    <td><b>Modificar:</b></td>
+                    <td><b>Eliminar:</b></td>
                     <td>
                   </tr>
                   <tr>

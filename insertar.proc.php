@@ -8,8 +8,8 @@
 		<?php
 			//realizamos la conexión con mysql
 			$con = mysqli_connect('localhost', 'root', 'DAW22015', 'bd_pr02_intranet');
-			$sql = "INSERT INTO tbl_usuario (Nombre, Apellido, email, password, id_tipo_usuario) VALUES ('$_REQUEST[nombre]', '$_REQUEST[apellido]', $_REQUEST[email], $_REQUEST[password]), '$_REQUEST[tip]'";
-
+			//$sql = "INSERT INTO tbl_usuario ('nombre', 'apellido', 'email', 'password', 'id_tipo_usuario') VALUES ('$_REQUEST[nom]', '$_REQUEST[ape]', $_REQUEST[mail], $_REQUEST[pass], $_REQUEST[tip])";
+			$sql = "INSERT INTO `tbl_usuario`(`nombre`, `apellido`, `email`, `password`, `id_tipo_usuario`) VALUES ('$_REQUEST[nom]', '$_REQUEST[ape]', '$_REQUEST[mail]', $_REQUEST[pass], $_REQUEST[tip])";
 			//echo $sql;
 
 			//lanzamos la sentencia sql

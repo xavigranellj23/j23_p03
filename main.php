@@ -79,6 +79,17 @@ if(isset($_REQUEST['opciones'])){
             <ul>
               <a href="main.php"><li>INICIO</li></a>
               <a href="reserva.php"><li>RESERVAS</li></a>
+              <?php
+              if ($_SESSION['sUser'] == )
+
+              if(!isset($_SESSION['sUser'])){
+  //comprueba si está vacia la sesión
+  if(empty($_SESSION['sUser'])){
+    //en caso afirmativo, redirige a index para login
+    header('location: index.php');
+  }
+}
+              ?>
               <a href="usuarios.php"><li>USUARIOS</li></a>
             </ul>
           </nav>
