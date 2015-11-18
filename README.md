@@ -1,1 +1,6 @@
-# j23_p03
+# pr02_intranet
+Proyecto02: INTRANET
+
+FELIPE, XAVI, GERMÁN
+
+

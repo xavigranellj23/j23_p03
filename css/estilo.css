@@ -1,0 +1,335 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: #5f86b2;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+/* BARRA NEGRA LOGIN */
+
+	#barraNegra{
+		background-color: #4F6187;
+		width: 100%;
+		height: 25px;
+		min-width: 999px;
+	}
+
+	#barraLogin {
+		margin: 0 auto;
+		position: relative;
+		width: 999px;
+	}
+
+	#listaLogin{
+		float: right;
+		padding-top: 5px;
+		text-decoration: none;
+	}
+
+	#listaLogin li{
+		display: inline;
+		color: white;
+	}
+
+	#listaLogin li a{
+		color: white;
+		text-decoration: none;
+	}
+
+	#listaLogin li a:hover{
+		color: #002147;
+	}
+
+/* FIN  BARRA NEGRA LOGIN */
+
+/* HEADER */
+	header {
+		text-align: center;
+		background-color: #002147;
+		width: 100%;
+		height: 62px;
+		position: relative;
+	}
+
+	section{
+		position: relative;
+		margin: 0 auto;
+		width: 999px;
+		height: 62px;
+		background-color: #002147;
+	}
+
+	figure{
+		position: relative;
+		float: left;
+		width: 25%;
+		height: 62px;
+	}
+
+	figure img{
+		position: relative;
+		float: left;
+	}
+
+	nav{
+		position: relative;
+		float: right;
+		width: 75%;
+		height: 62px;
+	}
+
+	nav ul{
+		color: white;
+		text-align: right;
+		text-decoration: none;
+		padding-top: 30px;
+		font-size: 20px;
+	}
+
+	nav ul li{
+		display: inline;
+		text-align: right;
+		padding-right: 9px;
+		padding-left: 9px;
+	}
+
+	nav ul li:hover{
+		color: #002147;
+		background-color: white;
+		padding-bottom: 10px;
+		padding-top: 30px;
+	}
+
+/* FIN HEADER */
+
+/* MEDIO */
+	main{
+		margin: 0 auto;
+		width: 100%;
+		height: 500px;
+	}
+
+	#centro{
+		background-color: #5f86b2;
+		/*background-image: url('../img/fondo.png');*/
+		background-repeat: no-repeat;
+		background-position: center center;
+		width: 100%;
+		height: 500px;
+		margin: 0 auto;
+	}
+
+	/* FORMULARIO */
+		#headerLogin{
+			background-color: #5f86b2;
+		}
+
+		#headerCentro{
+			margin: 0 auto;
+			width: 385px;
+		}
+
+		#headerLogin h2{
+			padding-top: 15px;
+			color: white;
+			float: left;
+		}
+
+		#formCentro{
+			background-color: #5f86b2;
+			width: 385px;
+			height: 250px;
+			margin: 0 auto;
+			border: 1px solid white;
+			border-radius: 5px;
+		}
+
+		#formLogin{
+			padding: 15px;
+		}
+
+		form input#user:focus, form input#pass:focus {
+			box-shadow: 0px 0px 5px #80D8FF;
+			-webkit-box-shadow: 0px 0px 5px #80D8FF;
+			-moz-box-shadow: 0px 0px 5px #80D8FF;
+		}
+
+		form p{
+				color: white;
+				font-size: 20px;
+				margin-bottom: 10px;
+		}
+
+		.user, .pass{
+			border: 2px solid white;
+			padding: 5px;
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+
+		.submit, .reset{
+			margin-top: 20px;
+			padding: 5px;
+			color: white;
+			background-color:  #002147;
+			font-size: 20px;
+			border: 0;
+		}
+
+		.submit:hover, .reset:hover{
+			background-color:  #013570;
+			color: white;
+			cursor: pointer;
+		}
+
+		#error{
+			margin: 0 auto;
+			width: 385px;
+			height: auto;
+		}
+
+		#error p{
+			margin-top: 15px;
+			color: white;
+			font-size: 20px;
+			font-weight: bolder;
+		}
+
+	/*FIN FORMULARIO*/
+
+/* FIN MEDIO*/
+
+/* MOSTRAR */
+
+	#barraNegraDatos{
+		background-color: #4F6187;
+		width: 100%;
+		height: 50px;
+		min-width: 100%;
+		z-index: 9999;
+	}
+
+	#barraOpciones {
+		margin: 0 auto;
+		position: relative;
+		width: 999px;
+	}
+
+	#opciones{
+		list-style: none;
+	}
+
+	#opciones li{
+		padding-left: 10px;
+		margin-top: 5px;
+		margin-right: 10px;
+		display: inline-block;
+		color: white;
+	}
+
+
+	#divMaterial{
+		margin: 0 auto;
+		width: 999px;
+	}
+
+	#formMaterial{
+		background-color: white;
+		width: 500px;
+		height: 225px;
+		margin: 0 auto;
+		border: 1px solid white;
+		border-radius: 5px;
+	}
+
+	#formQuery{
+		padding: 10px;
+		width: 90%;
+		height: 200px;
+	}
+
+	#formMaterial:hover, #divMaterialReserva:hover{
+		border: 1px solid #002147;
+		border-radius: 5px;
+		box-shadow: 0 0 5px #002147;
+		-webkit-box-shadow: 0 0 5px #002147;
+		-moz-box-shadow: 0 0 5px #002147;
+	}
+
+	.fotoMini{
+		width: 90%;
+	}
+
+	#formQueryFoto{
+		float: left;
+		width: 50%;
+	}
+
+	#formQueryTexto{
+		float: left;
+		width: 50%
+	}
+
+	#formQueryTexto p{
+		color: #002147;
+	}
+
+	#formTituloMaterial{
+		font-weight: bold;
+	}
+
+	#reservar{
+		width: 80px;
+		height: 50px;
+		border: 0;
+		background-color: #002147;
+		color: white;
+	}
+
+	#reservar:hover{
+		background-color: #5f86b2;
+		color: white;
+		cursor: pointer;
+	}
+
+	#divMaterialReserva{
+		background-color: white;
+		width: 999px;
+		height: 80px;
+		margin: 0 auto;
+		border: 1px solid white;
+		border-radius: 5px;
+	}
+
+		#divMaterialReserva2{
+
+		background-color: #4F6187;
+
+	}
+
+	.fotoMiniConsulta{
+		width: 10%;
+	}
+
+	table{
+		border: 1px;
+		width: 100%;
+		height: 50px;
+	}
+
+	table tr td{
+		color: black;
+	}
+
+	#info{
+		width: 20px;
+		height: 20px;
+
+	}
