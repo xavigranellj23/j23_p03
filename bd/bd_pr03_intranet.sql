@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2015 a las 21:53:39
+-- Tiempo de generación: 20-11-2015 a las 11:48:32
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bd_pr02_intranet`
 --
-CREATE DATABASE IF NOT EXISTS `bd_pr02_intranet` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `bd_pr02_intranet`;
 
 -- --------------------------------------------------------
 
@@ -28,7 +26,6 @@ USE `bd_pr02_intranet`;
 -- Estructura de tabla para la tabla `tbl_material`
 --
 
-DROP TABLE IF EXISTS `tbl_material`;
 CREATE TABLE IF NOT EXISTS `tbl_material` (
 `id_material` int(11) NOT NULL,
   `id_tipo_material` int(11) NOT NULL,
@@ -77,25 +74,25 @@ INSERT INTO `tbl_material` (`id_material`, `id_tipo_material`, `descripcion`, `d
 -- Estructura de tabla para la tabla `tbl_reservas`
 --
 
-DROP TABLE IF EXISTS `tbl_reservas`;
 CREATE TABLE IF NOT EXISTS `tbl_reservas` (
 `id_reserva` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `hora_entrada` datetime DEFAULT NULL,
   `hora_salida` datetime DEFAULT NULL,
   `id_material` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `tbl_reservas`
 --
 
 INSERT INTO `tbl_reservas` (`id_reserva`, `id_usuario`, `hora_entrada`, `hora_salida`, `id_material`) VALUES
-(1, 1, '2015-11-06 12:03:12', '2015-11-16 12:40:54', 1),
-(2, 1, '2015-11-16 09:20:25', '2015-11-16 12:40:54', 1),
-(3, 11, '2015-11-16 10:36:17', '2015-11-16 12:40:54', 1),
+(1, 1, '2015-11-06 12:03:12', '2015-11-20 11:05:06', 1),
+(2, 1, '2015-11-16 09:20:25', '2015-11-20 11:05:06', 1),
+(3, 11, '2015-11-16 10:36:17', '2015-11-20 11:05:06', 1),
 (4, 11, '2015-11-16 10:59:57', '2015-11-16 11:00:13', 25),
-(5, 1, '2015-11-16 12:40:50', '2015-11-16 12:40:54', 1);
+(5, 1, '2015-11-16 12:40:50', '2015-11-20 11:05:06', 1),
+(6, 1, '2015-11-20 11:05:01', '2015-11-20 11:05:06', 1);
 
 -- --------------------------------------------------------
 
@@ -103,7 +100,6 @@ INSERT INTO `tbl_reservas` (`id_reserva`, `id_usuario`, `hora_entrada`, `hora_sa
 -- Estructura de tabla para la tabla `tbl_tipo_material`
 --
 
-DROP TABLE IF EXISTS `tbl_tipo_material`;
 CREATE TABLE IF NOT EXISTS `tbl_tipo_material` (
 `id_tipo_material` int(11) NOT NULL,
   `tipo` text COLLATE utf8_bin
@@ -123,7 +119,6 @@ INSERT INTO `tbl_tipo_material` (`id_tipo_material`, `tipo`) VALUES
 -- Estructura de tabla para la tabla `tbl_tipo_usuario`
 --
 
-DROP TABLE IF EXISTS `tbl_tipo_usuario`;
 CREATE TABLE IF NOT EXISTS `tbl_tipo_usuario` (
 `id_tipo_usuario` int(11) NOT NULL,
   `tipo_usuario` text COLLATE utf8_bin
@@ -144,7 +139,6 @@ INSERT INTO `tbl_tipo_usuario` (`id_tipo_usuario`, `tipo_usuario`) VALUES
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
 
-DROP TABLE IF EXISTS `tbl_usuario`;
 CREATE TABLE IF NOT EXISTS `tbl_usuario` (
 `id_usuario` int(11) NOT NULL,
   `id_tipo_usuario` int(11) NOT NULL,
@@ -159,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `tbl_usuario` (
 --
 
 INSERT INTO `tbl_usuario` (`id_usuario`, `id_tipo_usuario`, `nombre`, `apellido`, `email`, `password`) VALUES
-(1, 1, 'Xavier', 'Granell', '1010.joan23@fje.edu', '1234'),
+(1, 3, 'Xavier', 'Granell', '1010.joan23@fje.edu', '1234'),
 (2, 1, 'Felipe ', 'Iglesias', '2020.joan23@fje.edu', '1234'),
 (3, 1, 'German', 'Luque', '3030.joan23@fje.edu', '1234'),
 (4, 1, 'Aitor', 'Blesa', '4040.joan23@fje.edu', '1234'),
@@ -222,7 +216,7 @@ MODIFY `id_material` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 -- AUTO_INCREMENT de la tabla `tbl_reservas`
 --
 ALTER TABLE `tbl_reservas`
-MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tipo_material`
 --

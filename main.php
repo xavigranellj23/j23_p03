@@ -176,7 +176,7 @@ if(isset($_REQUEST['opciones'])){
                       <input type="hidden" name="disponibilidad" value="<?php echo $mostrar['disponible']; ?>">
                       <input type="hidden" name="material" value="<?php echo $mostrar['id_material']; ?>">
                       <input type="date" class="form2" value="<?php echo date('Y-m-d'); ?>" />
-                      <input type="time" class="form2" name="hora">
+                      <input type="time" class="form2" name="hora"> <br/>
                       <!-- Se comprueba el valor de disponible y se asigna un texto al botón -->
                       <input type="submit" id="reservar" name="reservar" value=<?php
                         if(!$mostrar['disponible']){
