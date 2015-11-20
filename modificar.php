@@ -26,7 +26,7 @@ if(!isset($_SESSION['sUser'])){
 //conexión a la base de datos o mensaje en caso de error
 $conexion = mysqli_connect('localhost','root','DAW22015','bd_pr02_intranet') or die ('No se ha podido conectar'. mysql_error());
 
-//Sentencia para mostrar todos los usuarios de la tabla tbl_usuario
+//sentencia donde iguala el campo email con la variable $_SESSION
 $sql = "SELECT DISTINCT * FROM tbl_usuario WHERE id_usuario=$_REQUEST[id]";
 
 

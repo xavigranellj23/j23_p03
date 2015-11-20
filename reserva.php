@@ -75,6 +75,7 @@ $sql .= " ORDER BY tbl_reservas.hora_entrada DESC";
             <ul>
               <a href="main.php"><li>INICIO</li></a>
               <a href="reserva.php"><li>RESERVAS</li></a>
+              <a href="usuarios.php"><li>USUARIOS</li></a>
             </ul>
           </nav>
         </section>

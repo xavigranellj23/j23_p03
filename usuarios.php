@@ -15,10 +15,12 @@ if(!isset($_SESSION['sUser'])){
 $conexion = mysqli_connect('localhost','root','DAW22015','bd_pr02_intranet') or die ('No se ha podido conectar'. mysql_error());
 
 //Sentencia para mostrar todos los usuarios de la tabla tbl_usuario
-$sql = "SELECT DISTINCT tbl_usuario.id_usuario, tbl_usuario.email, tbl_tipo_usuario.tipo_usuario, tbl_usuario.nombre, tbl_usuario.apellido
+$sql = "SELECT DISTINCT *
         FROM tbl_usuario
         INNER JOIN tbl_tipo_usuario on tbl_tipo_usuario.id_tipo_usuario = tbl_usuario.id_tipo_usuario";
 
+$sqlTipo2 = "SELECT * FROM tbl_usuario WHERE email = '$_SESSION[sUser]'"; 
+//echo $sqlTipo2;
 if(isset($_REQUEST['opciones'])){
   //si los valores son mayores de 0,
   if ($_REQUEST['opciones']>0) {
@@ -109,8 +111,11 @@ if(isset($_REQUEST['opciones'])){
             <?php
             //consulta de datos según el filtrado
               $datos = mysqli_query($conexion,$sql);
+              
+              $datos2 = mysqli_query($conexion,$sqlTipo2);
+              $mostrar2 = mysqli_fetch_array($datos2);
+              //echo $mostrar2['id_tipo_usuario'];
               //si se devuelve un valor diferente a 0 (hay datos)
-              if(mysqli_num_rows($datos)!=0){
                 while ($mostrar = mysqli_fetch_array($datos)) {
             ?>
             <br/>
@@ -123,37 +128,43 @@ if(isset($_REQUEST['opciones'])){
                     <td><b>Apellido:</b></td>
                     <td><b>Modificar:</b></td>
                     <td><b>Eliminar:</b></td>
-                    <td>
+                   
                   </tr>
                   <tr>
                     <td style="width:370px"><?php echo $mostrar['email'];  ?></td>
                     <td style="width:370px"><?php echo utf8_encode($mostrar['tipo_usuario']); ?></td>
                     <td style="width:370px"><?php echo $mostrar['nombre'];  ?></td>
                     <td style="width:370px"><?php echo $mostrar['apellido'];  ?></td>
+                    <td style="width:370px">
+                    <?php
 
-                    <div id="divMaterialReserva2">
-                    <td style="width:370px"> <?php echo "<a href='modificar.php?id=$mostrar[id_usuario]'><i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='Modificar'></i></a>"; ?></td>
-                    <td style="width:370px"> <?php echo "<a href='eliminar.php?id=$mostrar[id_usuario]'><i class='fa fa-trash fa-2x fa-pull-left fa-border' title='Eliminar'></i></a>"?></td>
-                    </div>
+                    switch ($mostrar2['id_tipo_usuario']) {
+                    
+
+                      case 2:
+
+                          echo "<a href='modificar.php?id=$mostrar[id_usuario]'><i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='Modificar'></i></a>";
+                          break;
+
+                      case 3:
+
+                          echo "<a href='modificar.php?id=$mostrar[id_usuario]'><i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='Modificar'></i></a>";
+                          ?>
+                          <td style="width:370px"><?php echo "<a href='eliminar.php?id=$mostrar[id_usuario]'><i class='fa fa-trash fa-2x fa-pull-left fa-border' title='Eliminar'></i></a>"; ?></td>
+                          <?php
+                        break;
+
+                    }
+
+                    ?>
+                    </td>
+
                   </tr>
                 </table>
             </div>
             <?php
             }
-          }else{
-            ?>
-            <br/>
-            <div id="divMaterialReserva">
-                <table>
-                  <tr>
-                    <th>
-                    <p><img src="img/info.png" id="info" alt="info" title="info" /> NO HAY DATOS QUE MOSTRAR </p>
-                    </th>
-                  </tr>
-                </table>
-            </div><?php
-              }
-            ?>
+          ?>
         	</section>
         </main>
     </body>

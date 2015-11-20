@@ -32,7 +32,10 @@ $conexion = mysqli_connect('localhost','root','DAW22015','bd_pr02_intranet') or 
 $sql = "SELECT tbl_material.id_material, tbl_tipo_material.tipo, tbl_material.descripcion, tbl_material.disponible, tbl_material.incidencia, tbl_material.descripcion_incidencia
         FROM tbl_material
         INNER JOIN tbl_tipo_material ON tbl_tipo_material.id_tipo_material = tbl_material.id_tipo_material";
-      /*  INNER JOIN tbl_usuario on tbl_usuario.id_usuario = tbl_reservas.id_usuario*/ /*tbl_usuario.email*/
+
+//sentencia donde iguala el campo email con la variable $_SESSION
+
+$sqlTipo3 = "SELECT * FROM tbl_usuario WHERE email = '$_SESSION[sUser]'"; 
 
 //comprobación si está instanciada la variable opciones (viene de un select de filtrado en el formulario de cabecera)
 if(isset($_REQUEST['opciones'])){
@@ -77,20 +80,33 @@ if(isset($_REQUEST['opciones'])){
           </figure>
           <nav>
             <ul>
-              <a href="main.php"><li>INICIO</li></a>
-              <a href="reserva.php"><li>RESERVAS</li></a>
-              <?php
-              if ($_SESSION['sUser'] == )
 
-              if(!isset($_SESSION['sUser'])){
-  //comprueba si está vacia la sesión
-  if(empty($_SESSION['sUser'])){
-    //en caso afirmativo, redirige a index para login
-    header('location: index.php');
-  }
-}
+              <?php
+
+              //se crea la vaariable datos, que contiene la conexion y la sentencia, y un fecth array; mediante un case se muestra que, dependiendo del tipo usuario, se muestre unos links o otros.
+
+              $datos3 = mysqli_query($conexion,$sqlTipo3);
+              $mostrar3 = mysqli_fetch_array($datos3);
+              switch ($mostrar3['id_tipo_usuario']) {
+                case 1:
+                    echo "<a href='main.php'><li>INICIO</li></a>";
+                    echo "<a href='reserva.php'><li>RESERVAS</li></a>";
+                    break;
+                case 2:
+                    echo "<a href='main.php'><li>INICIO</li></a>";
+                    echo "<a href='reserva.php'><li>RESERVAS</li></a>";
+                    echo "<a href='usuarios.php'><li>USUARIOS</li></a>";
+                    break;
+                case 3:
+                    echo "<a href='main.php'><li>INICIO</li></a>";
+                    echo "<a href='reserva.php'><li>RESERVAS</li></a>";
+                    echo "<a href='usuarios.php'><li>USUARIOS</li></a>";
+                    break;
+                  }
+
+
               ?>
-              <a href="usuarios.php"><li>USUARIOS</li></a>
+
             </ul>
           </nav>
         </section>
@@ -159,6 +175,8 @@ if(isset($_REQUEST['opciones'])){
                         <!-- campo oculto para enviar el id_material -->
                       <input type="hidden" name="disponibilidad" value="<?php echo $mostrar['disponible']; ?>">
                       <input type="hidden" name="material" value="<?php echo $mostrar['id_material']; ?>">
+                      <input type="date" class="form2" value="<?php echo date('Y-m-d'); ?>" />
+                      <input type="time" class="form2" name="hora">
                       <!-- Se comprueba el valor de disponible y se asigna un texto al botón -->
                       <input type="submit" id="reservar" name="reservar" value=<?php
                         if(!$mostrar['disponible']){
@@ -167,7 +185,8 @@ if(isset($_REQUEST['opciones'])){
                           echo "Devolver";
                         }
                         ?>>
-                      <a href="#top"><img src="img/top.png" alt="Subir" title="Subir" /></a>
+                        
+                      
                     </div>
                   </div><br/>
                 </form>

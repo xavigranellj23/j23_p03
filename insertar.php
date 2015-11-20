@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>Usuarios</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-      <style>
-        a {color: #4F6187;}
-      </style>
-  </head>
-  <body>
+
 
 <?php
 //se continúa la sesión
@@ -26,7 +16,7 @@ if(!isset($_SESSION['sUser'])){
 //conexión a la base de datos o mensaje en caso de error
 $conexion = mysqli_connect('localhost','root','DAW22015','bd_pr02_intranet') or die ('No se ha podido conectar'. mysql_error());
 
-//Sentencia para mostrar todos los usuarios de la tabla tbl_usuario
+//Sentencia $sql para seleccionar el tipo_usuario de la tabla tbl_tipo_usuario
 $sql = "SELECT * FROM tbl_tipo_usuario ORDER BY tipo_usuario ASC";
 
 
@@ -126,6 +116,7 @@ $sql = "SELECT * FROM tbl_tipo_usuario ORDER BY tipo_usuario ASC";
                     </select>
 
                     </td>
+                    <!-- Botones para insertar usuario i volver, donde te volvera a la ventana de usuarios.php-->
                     <td style="width:370px"> <input type="submit" value="Insertar  Usuario"></td>
                     <td style="width:370px"> <button type="submit" href="usuarios.php">Volver</button></td>
 

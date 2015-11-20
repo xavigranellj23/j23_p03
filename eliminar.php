@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>Usuarios</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-      <style>
-        a {color: #4F6187;}
-      </style>
-  </head>
-  <body>
+
 
 <?php
 //se continúa la sesión
@@ -108,6 +98,8 @@ $sql = "SELECT * FROM tbl_usuario WHERE id_usuario=$_REQUEST[id]";
 
 
                     </td>
+
+                    <!--Enlaces donde confirma si se quiere eliminar el usuario. Si quiere cancelar, vuelve a la pagina de usuarios.php -->
                     <td style="width:370px"> <?php echo "<a href='eliminar.proc.php?id_usuario=$_REQUEST[id]'><font color='blue'>Sí, estoy seguro</a>"; ?></td>
                     <td style="width:370px"> <a href="usuarios.php"><font color="blue">Cancelar</a> </td>
 

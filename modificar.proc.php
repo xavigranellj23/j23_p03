@@ -7,9 +7,10 @@
 	<body>
 		<?php
 			$con = mysqli_connect('localhost', 'root', 'DAW22015', 'bd_pr02_intranet');
-			$sql = "UPDATE tbl_usuario SET nombre='$_REQUEST[nom]', apellido='$_REQUEST[ape]', email='$_REQUEST[mail]', password='$_REQUEST[pass]', id_tipo_usuario=$_REQUEST[tip] WHERE id_usuario=$_REQUEST[id]";
 
-			//echo $sql;
+			//sentencia de actualizacion de los campos de la tabla tbl_usuarios
+
+			$sql = "UPDATE tbl_usuario SET nombre='$_REQUEST[nom]', apellido='$_REQUEST[ape]', email='$_REQUEST[mail]', password='$_REQUEST[pass]', id_tipo_usuario=$_REQUEST[tip] WHERE id_usuario=$_REQUEST[id]";
 
 			//lanzamos la sentencia sql
 			$datos = mysqli_query($con, $sql);
